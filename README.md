@@ -2,7 +2,7 @@
 
 # Flow Chart
 
-![flow](flow_image.png)
+![flow](./imgs/flow_image.png)
 
 # 기획의도
 
@@ -40,15 +40,15 @@
 
 - 보이는 영역의 데이터만 렌더링해 성능을 높임(Staff 페이지)
 - 작동화면
-  ![가상 스크롤 작동 화면](scroll_gif.gif)
+  ![가상 스크롤 작동 화면](./imgs/scroll_gif.gif)
 - 최적화 내용 (Render time: 441ms -> 2ms)
-  ![가상 스크롤 최적화](scroll_image.png)
+  ![가상 스크롤 최적화](./imgs/scroll_image.png)
 
 ## 코드스플리팅
 
 - React의 lazy()와 Suspense를 활용해 페이지 로딩속도 최적화
 - 최적화 내용 (Render time: 666ms -> 15ms)
-  ![코드 스플리팅 최적화](splitting_image.png)
+  ![코드 스플리팅 최적화](./imgs/splitting_image.png)
 
 ## 외부데이터 연동
 
