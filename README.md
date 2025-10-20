@@ -13,7 +13,7 @@
 
 ## 기대 효과
 
-- 복잡한 회계 지식 없이도, 달력만 클릭하면 매출/지출을 바로 기록하고 요약할 수 있도록 설계했습니다.
+- 복잡한 회계 지식 없이도 달력만 클릭하면 매출/지출을 바로 기록하고 요약할 수 있도록 설계했습니다.
 - 더 나아가 순이익 자동계산 및 월별 지출 합산 시각화로 자영업자들의 편의성 증대도 가능합니다.
 
 # 주요 페이지
@@ -29,11 +29,26 @@
 
 ## CRUD
 
+- Staff 페이지에서 직원의 정보를 조회, 삽입, 수정, 삭제 기능 지원
+
 ## SPA(router)
+
+- 필요한 데이터만 갱신해 더 나은 UX 제공을 위한 SPA 사용
+- SPA 구성 (Main | business | staff | profile | analysis)
 
 ## 가상 스크롤
 
+- 보이는 영역의 데이터만 렌더링해 성능을 높임(Staff 페이지)
+- 작동화면
+  ![가상 스크롤 작동 화면](scroll_gif.gif)
+- 최적화 내용 (Render time: 441ms -> 2ms)
+  ![가상 스크롤 최적화](scroll_image.png)
+
 ## 코드스플리팅
+
+- React의 lazy()와 Suspense를 활용해 페이지 로딩속도 최적화
+- 최적화 내용 (Render time: 666ms -> 15ms)
+  ![코드 스플리팅 최적화](splitting_image.png)
 
 ## 외부데이터 연동
 
@@ -41,25 +56,13 @@
 
 # 4. 각자 맡은 역할
 
-## 한정연(팀장)
-
-- 메인페이지
-- 분석 페이지
-- 코드 통합
-
-## 강진수
-
-- 직원 관리 페이지
-
-## 조준환
-
-- 회원가입 화면, 업체 등록 화면
+|                                        한정연(팀장)                                        |                                           강진수                                           |                                           조준환                                           |
+| :----------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |
+| <img src="https://avatars.githubusercontent.com/u/131198770?v=4" alt="한정연" width="100"> | <img src="https://avatars.githubusercontent.com/u/238125879?v=4" alt="조준환" width="100"> | <img src="https://avatars.githubusercontent.com/u/213219013?v=4" alt="김진수" width="100"> |
+|             Main, chart 페이지 제작. Calendar, Modal, Layout components 제작.              |              Staff 페이지 제작. 가상 스크롤 적용. 전체 아이디어 및 정보 검수.              |                 Login, Landing, Business 페이지 제작. Supabase 테이블 관리                 |
+|                            [GitHub](https://github.com/DOT-SOY)                            |                          [GitHub](https://github.com/shanekang1)                           |                          [GitHub](https://github.com/junhwan0427)                          |
 
 # 4. flow + UI(gif 파일이면 더 좋음)
 
-- CRUD:생성/조회/수정/삭제 전부 구현
-- SPA(router)
-- 가상 스크롤: 데이터의 효율화 처리
-- 코드스플리팅: lazy+ Suspense 처리하기
 - 외부데이터 연동: 외부데이터 이름
 - 반응형웹(PC, 태블릿 or 모바일)
