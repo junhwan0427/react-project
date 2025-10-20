@@ -58,15 +58,12 @@
 
 ## 반응형웹
 
-# 4. 각자 맡은 역할
+반응형 UI로 구성되어 있어 PC/모바일 모두 대응 가능
+
+# 팀원 및 역할 분담
 
 |                                        한정연(팀장)                                        |                                           강진수                                           |                                           조준환                                           |
 | :----------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |
 | <img src="https://avatars.githubusercontent.com/u/131198770?v=4" alt="한정연" width="100"> | <img src="https://avatars.githubusercontent.com/u/238125879?v=4" alt="조준환" width="100"> | <img src="https://avatars.githubusercontent.com/u/213219013?v=4" alt="김진수" width="100"> |
 |             Main, chart 페이지 제작. Calendar, Modal, Layout components 제작.              |              Staff 페이지 제작. 가상 스크롤 적용. 전체 아이디어 및 정보 검수.              |                 Login, Landing, Business 페이지 제작. Supabase 테이블 관리                 |
 |                            [GitHub](https://github.com/DOT-SOY)                            |                          [GitHub](https://github.com/shanekang1)                           |                          [GitHub](https://github.com/junhwan0427)                          |
-
-# 4. flow + UI(gif 파일이면 더 좋음)
-
-- 외부데이터 연동: 외부데이터 이름
-- 반응형웹(PC, 태블릿 or 모바일)
