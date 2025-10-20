@@ -1,0 +1,369 @@
+/* ===== 전체 래퍼 ===== */
+.calendar-wrapper {
+  width: clamp(340px, 60vw, 960px);
+  margin: 30px auto 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  background: #f9f9f9;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== 캘린더 본체 ===== */
+.react-calendar {
+  width: 100%;
+  border: none;
+  border-radius: 18px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "Helvetica Neue", Arial, sans-serif;
+  transition: all 0.2s ease;
+  min-height: 460px; /* 전체 높이 축소 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== 네비게이션 ===== */
+.react-calendar__navigation {
+  margin-top: 20px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.react-calendar__navigation button {
+  font-weight: 600;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  color: #222;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.react-calendar__navigation button:hover {
+  background: #f2f2f7;
+}
+
+.react-calendar__navigation__label__labelText {
+  color: #111;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* ===== 요일 헤더 ===== */
+.react-calendar__month-view__weekdays {
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.react-calendar__month-view__weekdays abbr {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: #8e8e93;
+}
+
+/* 일요일은 빨강, 토요일은 파랑 */
+.react-calendar__month-view__weekdays__weekday--weekend:first-child abbr {
+  color: #ff3b30 !important;
+}
+.react-calendar__month-view__weekdays__weekday--weekend:last-child abbr {
+  color: #007aff !important;
+}
+
+/* ===== 날짜 영역 (6행 고정 + 상단 정렬 + 칸 자동 늘어남) ===== */
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  grid-template-rows: repeat(6, 1fr) !important; /* 6행 균등 분할 */
+  height: 100%;
+  flex-grow: 1;
+  min-height: 420px; /* 전체 달력 높이 기준 */
+  box-sizing: border-box;
+  justify-items: stretch;
+  align-items: stretch; /* 칸을 꽉 채움 */
+  place-content: start;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== 날짜 칸 ===== */
+.react-calendar__tile {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%; /* 자동 높이 확장 */
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 10px 4px; /* 내부 여백만 조정 */
+}
+
+/* 날짜 숫자 */
+.react-calendar__tile abbr {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1c1c1e;
+  margin-top: 6px;
+  margin-bottom: 4px;
+}
+
+/* 수익/지출 점 */
+.calendar-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-bottom: 4px;
+}
+
+/* 금액 텍스트 */
+.calendar-amount-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #222;
+}
+
+/* hover */
+.react-calendar__tile:hover {
+  background-color: #f2f2f7;
+  cursor: pointer;
+}
+
+/* 오늘 날짜 표시 */
+.react-calendar__tile--now abbr {
+  color: #007aff !important;
+  font-weight: 700;
+}
+
+/* 이웃 월 날짜 흐리게 */
+.react-calendar__month-view__days__day--neighboringMonth {
+  opacity: 0.4;
+}
+
+/* ===== 월/연도 선택 화면 (4열 3행 iOS 스타일) ===== */
+.react-calendar__year-view__months,
+.react-calendar__decade-view__years,
+.react-calendar__century-view__decades {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important;
+  grid-template-rows: repeat(2, 1fr) !important;
+  gap: 10px !important;
+  flex-grow: 1;
+  height: 100%;
+  min-height: 420px;
+  padding: 10px;
+  box-sizing: border-box;
+  justify-items: center;
+  align-items: center;
+}
+
+/* 인라인 flex 무시 */
+.react-calendar__year-view__months > *,
+.react-calendar__decade-view__years > *,
+.react-calendar__century-view__decades > * {
+  flex: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: visible !important;
+  margin: 0 !important;
+}
+
+/* 월/연도 타일 공통 */
+.react-calendar__year-view__months__month,
+.react-calendar__decade-view__years__year,
+.react-calendar__century-view__decades__decade {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 1rem;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  background: #fafafa;
+  color: #1c1c1e;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.react-calendar__year-view__months__month:hover,
+.react-calendar__decade-view__years__year:hover,
+.react-calendar__century-view__decades__decade:hover {
+  background: #f0f4ff;
+  box-shadow: 0 4px 10px rgba(0, 122, 255, 0.15);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+/* 현재 월 강조 */
+.react-calendar__year-view__months__month.react-calendar__tile--now {
+  transform: scale(1.02);
+}
+
+/* 현재 연도 강조 */
+.react-calendar__decade-view__years__year.react-calendar__tile--now {
+  background: #007aff !important;
+  color: white !important;
+  box-shadow: 0 6px 16px rgba(0, 122, 255, 0.25);
+}
+
+/* ===== 오늘 버튼 ===== */
+.calendar-today-btn {
+  position: absolute;
+  top: -30px;
+  right: 30px;
+  background-color: #007aff;
+  color: white;
+  width: 90px;
+  text-align: center;
+  line-height: 1.6rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 0px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 122, 255, 0.25);
+}
+
+.calendar-today-btn:hover {
+  opacity: 0.85;
+}
+
+/* ===== 총합 플로팅 ===== */
+.calendar-total-float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  background: #ffffffcc;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 14px;
+  padding: 10px 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+  font-size: 13px;
+  color: #111;
+  z-index: 1000;
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 480px) {
+  .react-calendar {
+    min-height: 380px;
+  }
+
+  .react-calendar__month-view__days {
+    min-height: 360px;
+  }
+
+  .react-calendar__tile {
+    min-height: 58px;
+  }
+
+  .calendar-wrapper {
+    width: 92%;
+    padding: 10px;
+  }
+
+  .calendar-today-btn {
+    right: 16px;
+    top: 12px;
+  }
+
+  .react-calendar__year-view__months,
+  .react-calendar__decade-view__years,
+  .react-calendar__century-view__decades {
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-rows: repeat(4, 1fr) !important;
+    min-height: 400px;
+  }
+
+  .react-calendar__year-view__months__month,
+  .react-calendar__decade-view__years__year,
+  .react-calendar__century-view__decades__decade {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== 필터 바 ===== */
+.calendar-filter-bar {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: #1c1c1e;
+}
+
+.calendar-filter-segment {
+  display: inline-flex;
+  background: #f2f2f7;
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.calendar-filter-segment label {
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #555;
+}
+
+.calendar-filter-segment input[type="radio"] {
+  display: none;
+}
+
+.calendar-filter-segment input[type="radio"]:checked + span {
+  background: white;
+  color: #007aff;
+  box-shadow: 0 2px 6px rgba(0, 122, 255, 0.15);
+}
+
+/* 기간 선택 input */
+.calendar-filter-range {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.calendar-filter-range input[type="date"] {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 4px 8px;
+  font-size: 13px;
+  color: #111;
+  background: white;
+  transition: 0.2s ease;
+}
+
+.calendar-filter-range input[type="date"]:focus {
+  outline: none;
+  border-color: #007aff;
+}

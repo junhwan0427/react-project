@@ -1,0 +1,73 @@
+.modal-rootOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* 내부 콘텐츠 */
+.modal-rootContent {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 660px;
+  max-height: 80vh;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 타이틀 */
+.modal-rootTitle {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* 본문 */
+.modal-rootBody {
+  text-align: left;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+/* 푸터 */
+.modal-rootFooter {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* 닫기 버튼 */
+.modal-rootCloseBtn {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #0078ff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.modal-rootCloseBtn:hover {
+  background-color: #005fcc;
+}
+
+/* 스크롤바 */
+.modal-rootContent::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-rootContent::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+.modal-rootContent::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}

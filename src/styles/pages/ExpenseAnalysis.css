@@ -1,0 +1,83 @@
+.expenseAnalysis-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+  color: #1f2937;
+}
+
+.expenseAnalysis-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.expenseAnalysis-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  width: 90%;
+  max-width: 1100px;
+  padding: 2rem;
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.expenseAnalysis-card {
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.expenseAnalysis-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.expenseAnalysis-emptyText {
+  color: #6b7280;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+.expenseAnalysis-total {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+.expenseAnalysis-totalValue {
+  font-weight: 600;
+  color: #dc2626;
+}
+
+.expenseAnalysis-loadingWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #6b7280;
+}
+
+/* 재사용 가능한 카드 스타일 (common.css에서도 import 가능) */
+.card-common {
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-common:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .expenseAnalysis-container {
+    grid-template-columns: 1fr;
+  }
+}

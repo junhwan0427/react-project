@@ -1,0 +1,237 @@
+.expenseModal-wrap {
+  width: 100%;
+}
+
+/* 상단 바 */
+.expenseModal-topbar {
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  padding-top: 4px;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #eef2f7;
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.expenseModal-btnGroup {
+  display: inline-flex;
+  padding: 8px 12px;
+  gap: 8px;
+}
+
+/* 버튼 */
+.expenseModal-btn {
+  min-width: 60px;
+  height: 30px;
+  text-align: center;
+  border: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.expenseModal-btn.ghost {
+  background: #f3f4f6;
+  color: #374151;
+}
+.expenseModal-btn.primary {
+  background: #7c97fe;
+  color: #fff;
+}
+
+/* 날짜 */
+.expenseModal-date {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  margin: 6px 0 14px;
+}
+
+/* 섹션 그룹 */
+.expenseModal-sectionGroup {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+/* 섹션 카드 */
+.expenseModal-section {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px;
+  background: #fff;
+}
+
+/* 섹션 헤더 */
+.expenseModal-sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.expenseModal-sectionHeader .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dot-color, #9ca3af);
+}
+.expenseModal-sectionHeader .label {
+  font-weight: 700;
+  color: #111827;
+}
+.expenseModal-sectionHeader .btn.add {
+  margin-left: auto;
+  background: #eef2ff;
+  color: #4f46e5;
+  border: 0;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 세트 리스트 */
+.expenseModal-setList {
+  display: grid;
+  gap: 8px;
+}
+.expenseModal-emptyRow {
+  padding: 10px;
+  border: 1px dashed #e5e7eb;
+  border-radius: 8px;
+  color: #6b7280;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* 항목 행 */
+.expenseModal-setRow {
+  display: grid;
+  grid-template-columns: 1fr 140px 56px;
+  gap: 20px;
+  align-items: center;
+}
+.expenseModal-setRow input[type="text"],
+.expenseModal-setRow input[type="number"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.expenseModal-setRow .btn.remove {
+  border: 0;
+  background: #fee2e2;
+  color: #991b1b;
+  border-radius: 8px;
+  font-weight: 700;
+  height: 36px;
+  cursor: pointer;
+}
+
+/* 합계 */
+.expenseModal-totalBar {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f9fafb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--total-color, #374151);
+  border: 1px solid #e5e7eb;
+}
+.expenseModal-totalBar span {
+  font-weight: 600;
+}
+.expenseModal-totalBar strong {
+  font-size: 16px;
+}
+
+/* 메모 */
+.expenseModal-memoBox {
+  margin-top: 12px;
+  display: grid;
+  gap: 6px;
+}
+.expenseModal-memoBox label {
+  font-weight: 700;
+  color: #111827;
+}
+.expenseModal-memoBox textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+/* 자동완성 드롭다운 */
+.expenseModal-inputWrap {
+  position: relative;
+}
+.expenseModal-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  z-index: 9999;
+  max-height: 140px;
+  overflow-y: auto;
+  list-style: none;
+  margin: 4px 0 0 0;
+  padding: 0;
+}
+.expenseModal-dropdown li {
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.expenseModal-dropdown li:hover {
+  background-color: #f3f4f6;
+}
+
+/* 반응형 */
+@media (max-width: 420px) {
+  .expenseModal-setRow {
+    grid-template-columns: 1fr 1fr;
+  }
+  .expenseModal-setRow .btn.remove {
+    grid-column: span 2;
+  }
+}
+
+/* 추가 버튼 */
+.expenseModal-addBtn {
+  margin-left: auto;
+  background: #eef2ff;
+  color: #4f46e5;
+  border: 0;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.expenseModal-addBtn:hover {
+  filter: brightness(0.98);
+}
+
+/* 삭제 버튼 */
+.expenseModal-removeBtn {
+  border: 0;
+  background: #fee2e2;
+  color: #991b1b;
+  border-radius: 8px;
+  font-weight: 700;
+  height: 36px;
+  cursor: pointer;
+}
+.expenseModal-removeBtn:hover {
+  filter: brightness(0.98);
+}

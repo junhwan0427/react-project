@@ -1,0 +1,343 @@
+/* 전체 컨테이너 */
+.main-content {
+  padding-top: 80px;
+  background: #fff;
+  font-family: "Pretendard", sans-serif;
+  color: #111827;
+  box-sizing: border-box;
+}
+
+/* 광고 배너 영역 */
+.top-ad-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  padding: 40px 0;
+  background: #f9fafb;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.top-ad-banner a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-ad-banner a img {
+  width: 420px;
+  height: 160px;
+  object-fit: contain;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.top-ad-banner a:hover img {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 타이틀 */
+.topbar2 {
+  padding: 20px;
+  background-color: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.topbar2 h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  text-align: center;
+}
+
+/* 검색창 + 버튼 */
+.search-bar {
+  position: sticky;
+  top: 64px;
+  z-index: 30;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  box-sizing: border-box;
+}
+
+.search-bar input {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.register-btn {
+  flex: 0 0 auto;
+  min-width: 110px;
+  max-width: 140px;
+  height: 38px;
+  padding: 0 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #2563eb;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.register-btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* 600px 이하: 버튼과 검색창 크기 조정 */
+@media (max-width: 600px) {
+  .search-bar {
+    gap: 8px;
+  }
+
+  .search-bar input {
+    height: 38px;
+    font-size: 14px;
+  }
+
+  .register-btn {
+    min-width: 80px;
+    max-width: 90px;
+    height: 34px;
+    font-size: 13px;
+    padding: 0 10px;
+  }
+}
+
+/* 테이블 */
+.staff-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.staff-table th,
+.staff-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.staff-table th {
+  font-weight: 600;
+  color: #374151;
+  background: #f3f4f6;
+  position: sticky;
+  top: 116px; /* 네비게이션(64px) + 검색창(52px) */
+  z-index: 30;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* 입력모드 input/select */
+.edit-row input,
+.edit-row select {
+  width: 90%;
+  padding: 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* 버튼 공통 */
+.edit-btn,
+.delete-btn,
+.save-btn,
+.cancel-btn {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+  margin: 2px;
+}
+
+.edit-btn {
+  background-color: #3b82f6;
+}
+.edit-btn:hover {
+  background-color: #2563eb;
+}
+
+.delete-btn {
+  background-color: #ef4444;
+}
+.delete-btn:hover {
+  background-color: #dc2626;
+}
+
+.save-btn {
+  background-color: #10b981;
+}
+.save-btn:hover {
+  background-color: #059669;
+}
+
+.cancel-btn {
+  background-color: #6b7280;
+}
+.cancel-btn:hover {
+  background-color: #4b5563;
+}
+
+/* 정렬 버튼 (화살표) */
+.staff-table th button {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  color: #374151;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.staff-table th button:hover {
+  color: #2563eb;
+  transform: translateY(-1px);
+}
+
+/* 정렬 버튼 아이콘 중복 완전 제거 */
+.staff-table th button::after {
+  content: none !important; /* CSS 아이콘 비활성화 */
+}
+
+.staff-table th button.asc::after {
+  content: "▲";
+  color: #2563eb;
+  top: -0.5px;
+}
+
+.staff-table th button.desc::after {
+  content: "▼";
+  color: #2563eb;
+  top: 0.5px;
+}
+
+/* TOP 버튼 */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 15px;
+  background-color: #98b41b;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  z-index: 1200;
+}
+
+.scroll-top-btn:hover {
+  background-color: #f11505;
+  transform: translateY(-3px);
+}
+
+/* 540px~900px: 배너 비율 균등 조정 */
+@media (min-width: 540px) and (max-width: 900px) {
+  .top-ad-banner {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 30px 0;
+  }
+
+  .top-ad-banner a img {
+    width: 80%;
+    max-width: 360px;
+    height: auto;
+    aspect-ratio: 21 / 8;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+  }
+}
+
+/* 600px 이하에서 칸 폭 재조정 */
+@media (max-width: 600px) {
+  .staff-table {
+    table-layout: fixed;
+    width: 100%;
+  }
+  .staff-table td,
+  .staff-table th {
+    font-size: 12px;
+    padding: 6px;
+    white-space: normal; /* 줄바꿈 허용 */
+    word-break: break-word; /* 단어 길면 강제 줄바꿈 */
+  }
+
+  .edit-row input,
+  .edit-row select {
+    width: 100%;
+    font-size: 11px;
+  }
+
+  .staff-table th:nth-child(6),
+  .staff-table td:nth-child(6) {
+    width: auto;
+    min-width: 70px;
+    text-align: right;
+    white-space: nowrap;
+  }
+}
+/* 600px 이하에서 배너 한 줄씩 세로 배치 */
+@media (max-width: 600px) {
+  .top-ad-banner {
+    flex-direction: column; /* 한 줄씩 세로로 배치 */
+    align-items: center; /* 중앙 정렬 */
+    gap: 20px; /* 배너 간 간격 */
+    padding: 20px 0; /* 상하 여백 조정 */
+  }
+
+  .top-ad-banner a img {
+    width: 90%; /* 화면 폭 기준으로 자동 맞춤 */
+    max-width: 380px; /* 너무 커지지 않도록 제한 */
+    height: auto;
+    aspect-ratio: 21 / 9; /* 비율 유지 */
+    object-fit: contain;
+  }
+}
+/* 근무형태 정렬 아이콘 세로 중앙 정렬 고정 */
+.staff-table th button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 1; /* 글자 높이 통일 */
+  gap: 4px; /* 텍스트와 아이콘 간격 미세 조정 */
+}
+
+/* 헤더 셀 전체 높이 일치 */
+.staff-table th {
+  height: 38px; /* 모든 th 동일 높이로 고정 */
+  vertical-align: middle; /* 수직 중앙정렬 */
+  white-space: nowrap; /* 줄바꿈 방지 */
+}
