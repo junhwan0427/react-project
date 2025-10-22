@@ -49,32 +49,38 @@
 
 - 보이는 영역의 데이터만 렌더링해 성능을 높였습니다.
 - 작동화면
+
   ![가상 스크롤 작동 화면](./imgs/scroll_gif.gif)
+
 - 최적화 내용 (Render time: 441ms -> 2ms)
+
   ![가상 스크롤 최적화](./imgs/scroll_image.png)
 
 ## 코드스플리팅
 
 - React의 lazy()와 Suspense를 활용해 페이지 로딩속도 최적화
 - 최적화 내용 (Render time: 666ms -> 15ms)
+
   ![코드 스플리팅 최적화](./imgs/splitting_image.png)
 
 ## 외부데이터 연동
 
 - Supabase API를 사용해 데이터베이스와 로그인 인증 기능을 구현
 - Supabase DB 구조
+
   ![DB 구조](./imgs/erd.png)
 
 ## 반응형웹
 
 - 반응형 UI로 구성되어 있어 PC/모바일 모두 대응 가능합니다.
+
   ![web](./imgs/web.gif)
 
 # UI 및 상세 Flow 요약
 
 ## **메인 페이지**
 
-> flow 요약:
+> flow 요약: 메인 경로 진입 → useBusinessReload가 현재 사업장 ID 변경을 감지해 OwnCalendar를 재마운트 → useCalendarData가 사업장·기간 상태를 초기화하고 useRevenueFetch로 Supabase에서 범위 데이터를 로딩 → 날짜 클릭 시 하루 데이터를 조회해 모달을 열고, useRevenueSave가 입력값과 DB를 동기화해 합계·배지·모달 상태를 갱신
 
 - 기간별 수익 조회
 - 달력 클릭을 통한 매출 입력 가능
@@ -83,32 +89,33 @@
 
 ## **분석 페이지**
 
-> flow 요약:
+> flow 요약: 페이지 로드시 useBusinessReload가 사업장 전환을 감지 → useExpenseAnalysis가 해당 사업장의 월간 지출을 Supabase에서 조회·집계 → 카테고리별 합계·일자별 추이를 계산 → 로딩 이후 파이 차트와 라인 차트 컴포넌트에 데이터를 전달해 시각화 렌더링
 
 - 항목/일자 별 지출 시각화 제공
 
   ![anal](./imgs/analui.gif)
 
-## **로그인/회원가입**: 사용자 인증
+## **로그인/회원가입**
 
-> flow 요약:
+> flow 요약: Supabase에서 ID/PW 검증 -> 실패 시 회원가입으로 전환 -> 회원가입 폼이 실시간 유효성 검사·중복 확인을 거쳐 Auth 계정과 profiles 레코드를 생성
 
 - 사용자 인증
-- 형식에 맞는 데이터 저장
+- 실시간 유효성 검사·중복 확인
 
   ![login](./imgs/loginui.gif)
 
-## **직원 관리 페이지**: 직원 등록, 검색, 정렬 및 관리 기능 지원
+## **직원 관리 페이지**
 
-> flow 요약:
+> flow 요약: Redux에서 선택된 사업장 ID를 받아 초기 페이지 상태를 리셋 → fetchStaff가 Supabase staff 테이블을 페이지네이션·정렬 조건으로 조회 → 검색/정렬/무한 스크롤로 리스트를 갱신하고, 추가·수정·삭제 시 Supabase와 동기화 후 목록을 재로딩 → 반응형 급여 표기와 TOP 버튼 등 UI 상태를 실시간 관리
 
-- 직원 등록, 검색, 정렬 및 관리 기능 지원
+- 직원 등록, 삭제, 수정 기능 지원
+- 직원 정렬 및 필터링 기능 지원
 
 ![staff](./imgs/staffui.gif)
 
 ## **업체 관리 페이지**
 
-> flow 요약:
+> flow 요약: 인증 여부를 확인한 뒤 사업장 등록 폼을 채워 mapBusinessToRow로 가공한 데이터를 businesses 테이블에 저장 → 수정 화면에서 소유한 사업장 목록을 로드해 선택값을 폼에 매핑하고 수정 내용을 동일 테이블에 업데이트 → 상단 드롭다운/라우터가 선택 ID를 바꾸면 useBusinessReload를 사용하는 메인·분석 화면이 즉시 새 사업장 기준으로 재랜더링됨.
 
 - 업체 등록, 수정, 전환 가능
 - 업체 전환 시 해당 업체 데이터로 변경
