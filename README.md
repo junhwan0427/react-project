@@ -59,7 +59,7 @@
 
 ## 코드스플리팅
 
-- React의 lazy()와 Suspense를 활용해 페이지 로딩속도를 최적화했습니다.
+- React의 lazy()와 Suspense를 각 페이지별로 적용해 로딩속도를 최적화했습니다.
 - 최적화 내용 (Render time: 666ms -> 15ms)
 
   ![코드 스플리팅 최적화](./imgs/splitting_image.png)
@@ -109,7 +109,7 @@
 
 > flow 요약: BusinessId 변경 감지 → fetchStaff()로 Supabase 데이터 조회 → 검색/정렬/무한 스크롤로 리스트를 갱신하고, 추가·수정·삭제 시 Supabase와 동기화 후 목록을 재로딩 → 반응형 급여 표기와 TOP 버튼 등 UI 상태를 실시간 관리
 
-- 직원 등록, 삭제, 수정 기능 지원
+- 직원 등록, 삭제, 수정, 검색 기능 지원
 - 직원 정렬 및 필터링 기능 지원
 
 ![staff](./imgs/staffui.gif)
