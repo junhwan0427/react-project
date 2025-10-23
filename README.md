@@ -116,7 +116,7 @@
 
 ## **업체 관리 페이지**
 
-> flow 요약: 인증 여부 확인 → 신규 사업장은 폼 값을 mapBusinessToRow로 변환해 Supabase 테이블에 저장 → 목록에서 고른 사업장을 수정해 같은 테이블로 업데이트 → 업체 전환에서 선택 ID가 바뀌면 useBusinessReload이 감지해 메인화면이 해당 ID기준으로 재랜더링
+> flow 요약: 인증된 사용자만 접근 → 신규 사업장은 폼 값을 mapBusinessToRow로 변환해 Supabase 테이블에 저장 → 업체 전환에서 선택 ID가 바뀌면 useBusinessReload가 감지 -> 메인화면이 해당 ID기준으로 재랜더링
 
 - 업체 등록, 수정, 전환 가능
 - 업체 전환 시 해당 업체 데이터로 변경
