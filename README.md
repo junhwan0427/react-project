@@ -22,7 +22,8 @@
 ## **참고 사이트 및 차별점**
 
 - 참고 사이트: [그랜터](https://granter.biz/ai-automation)
-- 차별점: 익숙한 달력 형식에 가계부를 더해 회계 지식이 없는 사용자들도 직관적인 사용이 가능합니다.
+- 문제점: 회계 지식이 부족한 사용자가 활용하기 어려운 한계가 있습니다.
+- 차별점: 익숙한 달력 형식에 가계부를 더해 직관적인 사용이 가능합니다.
 
 ---
 
@@ -31,21 +32,21 @@
 |                                        한정연(팀장)                                        |                                           강진수                                           |                                           조준환                                           |
 | :----------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |
 | <img src="https://avatars.githubusercontent.com/u/131198770?v=4" alt="한정연" width="100"> | <img src="https://avatars.githubusercontent.com/u/238125879?v=4" alt="조준환" width="100"> | <img src="https://avatars.githubusercontent.com/u/213219013?v=4" alt="김진수" width="100"> |
-|             Main, chart 페이지 제작. Calendar, Modal, Layout components 제작.              |              Staff 페이지 제작. 가상 스크롤 적용. 전체 아이디어 및 정보 검수.              |                 Login, Landing, Business 페이지 제작. Supabase 테이블 관리                 |
+|              메인, 분석 페이지 제작. Calendar, Modal, Layout components 제작.              |                직원 관리 페이지 제작. 무한 스크롤 적용. 전체 아이디어 제공                 |               로그인, 회원가입, 업체 관리 페이지 제작. Supabase 테이블 관리                |
 |                            [GitHub](https://github.com/DOT-SOY)                            |                          [GitHub](https://github.com/shanekang1)                           |                          [GitHub](https://github.com/junhwan0427)                          |
 
 # 주요 구현 기능
 
 ## CRUD
 
-- 매출 및 직원정보 등록, 조회, 삽입, 수정, 삭제 기능을 지원합니다.
+- 매출 및 직원정보 등록, 조회, 검색, 수정, 삭제 기능을 지원합니다.
 
 ## SPA(router)
 
 - 필요한 데이터만 갱신해 더 나은 UX 제공을 위해 SPA환경을 구축했습니다.
-- SPA 구성 (Main | business | staff | profile | analysis)
+- SPA 구성 (메인 | 업체관리 | 직원관리 | 회원정보 | 분석)
 
-## 가상 스크롤
+## 무한 스크롤
 
 - 보이는 영역의 데이터만 랜더링해 성능을 최적화했습니다.
 - 작동화면
@@ -63,7 +64,7 @@
 
   ![코드 스플리팅 최적화](./imgs/splitting_image.png)
 
-## 외부데이터 연동
+## API 연동
 
 - Supabase API를 사용해 데이터베이스와 로그인 인증 기능을 구현했습니다.
 - Supabase DB 구조
@@ -106,7 +107,7 @@
 
 ## **직원 관리 페이지**
 
-> flow 요약: Redux에서 선택된 사업장 ID를 받아 초기 페이지 상태를 리셋 → fetchStaff가 Supabase staff 테이블을 페이지네이션·정렬 조건으로 조회 → 검색/정렬/무한 스크롤로 리스트를 갱신하고, 추가·수정·삭제 시 Supabase와 동기화 후 목록을 재로딩 → 반응형 급여 표기와 TOP 버튼 등 UI 상태를 실시간 관리
+> flow 요약: BusinessId 변경 감지 → fetchStaff()로 Supabase 데이터 조회 → 검색/정렬/무한 스크롤로 리스트를 갱신하고, 추가·수정·삭제 시 Supabase와 동기화 후 목록을 재로딩 → 반응형 급여 표기와 TOP 버튼 등 UI 상태를 실시간 관리
 
 - 직원 등록, 삭제, 수정 기능 지원
 - 직원 정렬 및 필터링 기능 지원
