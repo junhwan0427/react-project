@@ -77,7 +77,7 @@
 
   ![web](./imgs/web.gif)
 
-# UI 및 상세 Flow 요약
+# UI 및 Flow 요약
 
 ## **메인 페이지**
 
