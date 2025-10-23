@@ -3,7 +3,7 @@
 # 기획의도
 
 - 현재 많은 개인 자영업자들은 일일 매출 및 지출 내역을 수기로 기록하거나 엑셀에 수동 입력하고 있습니다.
-- 시간 소모가 크고, 데이터 누락 위험이 있는 방식을 개선하기 위해 간단하면서도 직관적인 <strong>'웹 기반 매출 관리 서비스’</strong >를 기획했습니다.
+- 시간 소모가 크고, 데이터 누락 위험이 있는 방식을 개선하기 위해 간단하면서도 직관적인 <strong>'웹 기반 매출 관리 서비스’</strong>를 기획했습니다.
 
 ## 기대 효과
 
@@ -88,6 +88,10 @@
 
   ![main](./imgs/mainui.gif)
 
+  ### Flow
+
+  ![main_flow](./imgs/main_flow.png)
+
 ## **분석 페이지**
 
 > flow 요약: 페이지 로드시 useBusinessReload가 사업장 전환을 감지 → useExpenseAnalysis가 해당 사업장의 월간 지출을 Supabase에서 조회·집계 → 카테고리별 합계·일자별 추이를 계산 → 로딩 이후 파이 차트와 라인 차트 컴포넌트에 데이터를 전달해 시각화 랜더링
@@ -95,6 +99,10 @@
 - 항목/일자 별 지출 시각화 제공
 
   ![anal](./imgs/analui.gif)
+
+  ### Flow
+
+  ![anal_flow](./imgs/anal_flow.png)
 
 ## **로그인/회원가입**
 
@@ -105,6 +113,10 @@
 
   ![login](./imgs/loginui.gif)
 
+  ### Flow
+
+  ![login_flow](./imgs/login_flow.png)
+
 ## **직원 관리 페이지**
 
 > flow 요약: BusinessId 변경 감지 → fetchStaff()로 Supabase 데이터 조회 → 검색/정렬/무한 스크롤로 리스트를 갱신하고, 추가·수정·삭제 시 Supabase와 동기화 후 목록을 재로딩 → 반응형 급여 표기와 TOP 버튼 등 UI 상태를 실시간 관리
@@ -113,6 +125,10 @@
 - 직원 정렬 및 필터링 기능 지원
 
 ![staff](./imgs/staffui.gif)
+
+### Flow
+
+![staff_flow](./imgs/staff_flow.png)
 
 ## **업체 관리 페이지**
 
@@ -123,9 +139,9 @@
 
 ![biz](./imgs/bizui.gif)
 
-# Flow Chart
+### Flow
 
-![flow](./imgs/flow_image.png)
+![biz_flow](./imgs/biz_flow.png)
 
 # 개발 환경
 
