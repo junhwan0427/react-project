@@ -29,11 +29,11 @@
 
 # 팀원 및 역할 분담
 
-|                                        한정연(팀장)                                        |                                           강진수                                           |                                           조준환                                           |
-| :----------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |
-| <img src="https://avatars.githubusercontent.com/u/131198770?v=4" alt="한정연" width="100"> | <img src="https://avatars.githubusercontent.com/u/238125879?v=4" alt="조준환" width="100"> | <img src="https://avatars.githubusercontent.com/u/213219013?v=4" alt="김진수" width="100"> |
-|              메인, 분석 페이지 제작. Calendar, Modal, Layout components 제작.              |                직원 관리 페이지 제작. 무한 스크롤 적용. 전체 아이디어 제공                 |               로그인, 회원가입, 업체 관리 페이지 제작. Supabase 테이블 관리                |
-|                            [GitHub](https://github.com/DOT-SOY)                            |                          [GitHub](https://github.com/shanekang1)                           |                          [GitHub](https://github.com/junhwan0427)                          |
+| 이름          | 프로필                                                                                 | 담당 역할                                                            | GitHub                                        |
+| ------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | --------------------------------------------- |
+| 한정연 (팀장) | <img src="https://avatars.githubusercontent.com/DOT-SOY" alt="한정연" width="100">     | 메인 • 분석 페이지 제작<br>Calendar • Modal • Layout components 제작 | [DOT-SOY](https://github.com/DOT-SOY)         |
+| 강진수        | <img src="https://avatars.githubusercontent.com/shanekang1" alt="강진수" width="100">  | 직원 관리 페이지 제작<br>무한 스크롤 적용<br>전체 아이디어 제공      | [shanekang1](https://github.com/shanekang1)   |
+| 조준환        | <img src="https://avatars.githubusercontent.com/junhwan0427" alt="조준환" width="100"> | 로그인 • 회원가입 • 업체 관리 페이지 제작<br>Supabase 테이블 관리    | [junhwan0427](https://github.com/junhwan0427) |
 
 # 주요 구현 기능
 
@@ -43,8 +43,8 @@
 
 ## SPA(router)
 
-- 필요한 데이터만 갱신해 더 나은 UX 제공을 위해 SPA환경을 구축했습니다.
-- SPA 구성 (메인 | 업체관리 | 직원관리 | 회원정보 | 분석)
+- 사용자에게 부드러운 UX를 제공하기 위해 SPA환경을 구축했습니다
+- React Router를 적용한 SPA 구성 (메인 | 업체관리 | 직원관리 | 회원정보 | 분석)
 
 ## 무한 스크롤
 
