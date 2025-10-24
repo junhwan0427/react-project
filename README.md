@@ -81,8 +81,6 @@
 
 ## **메인 페이지**
 
-> flow 요약: 메인 경로 진입 → useBusinessReload가 현재 사업장 ID 변경을 감지해 OwnCalendar를 재마운트 → useCalendarData가 사업장·기간 상태를 초기화하고 useRevenueFetch로 Supabase에서 범위 데이터를 로딩 → 날짜 클릭 시 하루 데이터를 조회해 모달을 열고, useRevenueSave가 입력값과 DB를 동기화해 합계·배지·모달 상태를 갱신
-
 - 기간별 수익 조회
 - 달력 클릭을 통한 매출 입력 가능
 
@@ -90,11 +88,11 @@
 
   ### Flow
 
+  > flow 요약: 메인 경로 진입 → useBusinessReload가 현재 사업장 ID 변경을 감지해 OwnCalendar를 재마운트 → useCalendarData가 사업장·기간 상태를 초기화하고 useRevenueFetch로 Supabase에서 범위 데이터를 로딩 → 날짜 클릭 시 하루 데이터를 조회해 모달을 열고, useRevenueSave가 입력값과 DB를 동기화해 합계·배지·모달 상태를 갱신
+
   ![main_flow](./imgs/main_flow.png)
 
 ## **분석 페이지**
-
-> flow 요약: 페이지 로드시 useBusinessReload가 사업장 전환을 감지 → useExpenseAnalysis가 해당 사업장의 월간 지출을 Supabase에서 조회·집계 → 카테고리별 합계·일자별 추이를 계산 → 로딩 이후 파이 차트와 라인 차트 컴포넌트에 데이터를 전달해 시각화 랜더링
 
 - 항목/일자 별 지출 시각화 제공
 
@@ -102,11 +100,11 @@
 
   ### Flow
 
+  > flow 요약: 페이지 로드시 useBusinessReload가 사업장 전환을 감지 → useExpenseAnalysis가 해당 사업장의 월간 지출을 Supabase에서 조회·집계 → 카테고리별 합계·일자별 추이를 계산 → 로딩 이후 파이 차트와 라인 차트 컴포넌트에 데이터를 전달해 시각화 랜더링
+
   ![anal_flow](./imgs/anal_flow.png)
 
 ## **로그인/회원가입**
-
-> flow 요약: Supabase에서 ID/PW 검증 -> 실패 시 회원가입으로 전환 -> 회원가입 폼이 실시간 유효성 검사·중복 확인을 거쳐 Auth 계정과 profiles 레코드를 생성
 
 - 사용자 인증
 - 실시간 유효성 검사·중복 확인
@@ -115,11 +113,11 @@
 
   ### Flow
 
+  > flow 요약: Supabase에서 ID/PW 검증 -> 실패 시 회원가입으로 전환 -> 회원가입 폼이 실시간 유효성 검사·중복 확인을 거쳐 Auth 계정과 profiles 레코드를 생성
+
   ![login_flow](./imgs/login_flow.png)
 
 ## **직원 관리 페이지**
-
-> flow 요약: BusinessId 변경 감지 → fetchStaff()로 Supabase 데이터 조회 → 검색/정렬/무한 스크롤로 리스트를 갱신하고, 추가·수정·삭제 시 Supabase와 동기화 후 목록을 재로딩 → 반응형 급여 표기와 TOP 버튼 등 UI 상태를 실시간 관리
 
 - 직원 등록, 삭제, 수정, 검색 기능 지원
 - 직원 정렬 및 필터링 기능 지원
@@ -128,11 +126,11 @@
 
 ### Flow
 
+> flow 요약: BusinessId 변경 감지 → fetchStaff()로 Supabase 데이터 조회 → 검색/정렬/무한 스크롤로 리스트를 갱신하고, 추가·수정·삭제 시 Supabase와 동기화 후 목록을 재로딩 → 반응형 급여 표기와 TOP 버튼 등 UI 상태를 실시간 관리
+
 ![staff_flow](./imgs/staff_flow.png)
 
 ## **업체 관리 페이지**
-
-> flow 요약: 인증된 사용자만 접근 → 신규 사업장은 폼 값을 mapBusinessToRow로 변환해 Supabase 테이블에 저장 → 업체 전환에서 선택 ID가 바뀌면 useBusinessReload가 감지 -> 메인화면이 해당 ID기준으로 재랜더링
 
 - 업체 등록, 수정, 전환 가능
 - 업체 전환 시 해당 업체 데이터로 변경
@@ -140,6 +138,8 @@
 ![biz](./imgs/bizui.gif)
 
 ### Flow
+
+> flow 요약: 인증된 사용자만 접근 → 신규 사업장은 폼 값을 mapBusinessToRow로 변환해 Supabase 테이블에 저장 → 업체 전환에서 선택 ID가 바뀌면 useBusinessReload가 감지 -> 메인화면이 해당 ID기준으로 재랜더링
 
 ![biz_flow](./imgs/biz_flow.png)
 
